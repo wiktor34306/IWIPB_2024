@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f9f6097" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0" camunda:diagramRelationId="10582589-c69d-4274-85c3-1f8125248141">
+  <bpmn:process id="Process_1kqmylz" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="UserTaskForm_0bvu6o1">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "f9f6097"
+  },
+  "schemaVersion": 14,
+  "id": "Form_0cbfxpj",
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Room1",
+          "value": "Room1"
+        }
+      ],
+      "label": "Select",
+      "type": "select",
+      "layout": {
+        "row": "Row_15jzjlk",
+        "columns": null
+      },
+      "id": "Field_1d6fdt6",
+      "key": "select_clpl2n",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_0hat4sd">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "f9f6097"
+  },
+  "schemaVersion": 14,
+  "id": "Form_10mgpom",
+  "components": [
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1tpokri",
+        "columns": null
+      },
+      "id": "Field_08ah8xv",
+      "key": "textfield_s61ahb",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Second Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0lc7h4y",
+        "columns": null
+      },
+      "id": "Field_1yuhqzm",
+      "key": "textfield_hns1yc",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Company Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_16m328y",
+        "columns": null
+      },
+      "id": "Field_137xmvl",
+      "key": "textfield_srw92l"
+    }
+  ],
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_1boh0lo">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "f9f6097"
+  },
+  "schemaVersion": 14,
+  "id": "Form_1gq72sc",
+  "components": [
+    {
+      "subtype": "datetime",
+      "dateLabel": "Start time",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_012s9rw",
+        "columns": null
+      },
+      "id": "Field_15407w5",
+      "key": "datetime_1gm8k",
+      "timeLabel": "Time",
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 15,
+      "use24h": false,
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "datetime",
+      "dateLabel": "End time",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1lye3wu",
+        "columns": null
+      },
+      "id": "Field_1dqodrs",
+      "key": "datetime_t42au",
+      "timeLabel": "Time",
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 15,
+      "use24h": false,
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_34grg8a">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "f9f6097"
+  },
+  "schemaVersion": 14,
+  "id": "Form_0qbhjea",
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Finish reservation",
+          "value": "Finish "
+        },
+        {
+          "label": "Retry reservation",
+          "value": "Retry"
+        }
+      ],
+      "label": "Choose",
+      "type": "radio",
+      "layout": {
+        "row": "Row_014qgrm",
+        "columns": null
+      },
+      "id": "Field_1mk4zno",
+      "key": "radio_805ey6",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default"
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_1xolcli">
+      <bpmn:outgoing>Flow_17i1t95</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_17i1t95" name="book conference room" sourceRef="Event_1xolcli" targetRef="Activity_12lg8sx" />
+    <bpmn:sequenceFlow id="Flow_1vcu066" sourceRef="Activity_12lg8sx" targetRef="Activity_1j7neqe" />
+    <bpmn:sequenceFlow id="Flow_1rcfdn1" sourceRef="Activity_1j7neqe" targetRef="Activity_0p0awb9" />
+    <bpmn:exclusiveGateway id="Gateway_0ahnx9t">
+      <bpmn:incoming>Flow_181fot8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ev5v9n</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1qr1ly7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_181fot8" sourceRef="Activity_0p0awb9" targetRef="Gateway_0ahnx9t" />
+    <bpmn:sequenceFlow id="Flow_0ev5v9n" name="is available" sourceRef="Gateway_0ahnx9t" targetRef="Activity_10t4ifd">
+      <bpmn:extensionElements />
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=is_available = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_15jp70b" name="retry" sourceRef="Gateway_1t8b2n1" targetRef="Activity_12lg8sx">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=resignation = false</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_1ucmjy1">
+      <bpmn:incoming>Flow_1wwfzku</bpmn:incoming>
+      <bpmn:incoming>Flow_1gj5gnm</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1wwfzku" sourceRef="Activity_10t4ifd" targetRef="Event_1ucmjy1" />
+    <bpmn:sequenceFlow id="Flow_1gj5gnm" sourceRef="Activity_03latxm" targetRef="Event_1ucmjy1" />
+    <bpmn:sequenceFlow id="Flow_1jadlyh" name="resignation" sourceRef="Gateway_1t8b2n1" targetRef="Activity_03latxm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=resignation = true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Activity_12lg8sx" name="Choose conference room">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_0bvu6o1" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_17i1t95</bpmn:incoming>
+      <bpmn:incoming>Flow_15jp70b</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vcu066</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1j7neqe" name="Provision of user/company data in order to undertake conference  room book">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_0hat4sd" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1vcu066</bpmn:incoming>
+      <bpmn:outgoing>Flow_1rcfdn1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0p0awb9" name="choose date for book conference room">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_1boh0lo" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1rcfdn1</bpmn:incoming>
+      <bpmn:outgoing>Flow_181fot8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1t8b2n1">
+      <bpmn:incoming>Flow_0vv7nh9</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jadlyh</bpmn:outgoing>
+      <bpmn:outgoing>Flow_15jp70b</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_0dzoe34" name="Choose what to do if reservation date is not available">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_34grg8a" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1qr1ly7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vv7nh9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1qr1ly7" name="not available" sourceRef="Gateway_0ahnx9t" targetRef="Activity_0dzoe34">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=is_available = false</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0vv7nh9" sourceRef="Activity_0dzoe34" targetRef="Gateway_1t8b2n1" />
+    <bpmn:serviceTask id="Activity_10t4ifd" name="reserve room">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="reserveRoom" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ev5v9n</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wwfzku</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_03latxm" name="cancellation of reservation">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="cancellationReservation" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1jadlyh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gj5gnm</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1kqmylz">
+      <bpmndi:BPMNShape id="Event_1xolcli_di" bpmnElement="Event_1xolcli">
+        <dc:Bounds x="192" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ahnx9t_di" bpmnElement="Gateway_0ahnx9t" isMarkerVisible="true">
+        <dc:Bounds x="865" y="225" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ucmjy1_di" bpmnElement="Event_1ucmjy1">
+        <dc:Bounds x="1482" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kqqi7t_di" bpmnElement="Activity_12lg8sx">
+        <dc:Bounds x="310" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0v7suft_di" bpmnElement="Activity_1j7neqe">
+        <dc:Bounds x="480" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1pmacaq_di" bpmnElement="Activity_0p0awb9">
+        <dc:Bounds x="670" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1t8b2n1_di" bpmnElement="Gateway_1t8b2n1" isMarkerVisible="true">
+        <dc:Bounds x="1145" y="225" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04vc31e_di" bpmnElement="Activity_0dzoe34">
+        <dc:Bounds x="990" y="210" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19vocgb_di" bpmnElement="Activity_10t4ifd">
+        <dc:Bounds x="1030" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1w4i6zr_di" bpmnElement="Activity_03latxm">
+        <dc:Bounds x="1450" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_17i1t95_di" bpmnElement="Flow_17i1t95">
+        <di:waypoint x="228" y="250" />
+        <di:waypoint x="310" y="250" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="219" y="266" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vcu066_di" bpmnElement="Flow_1vcu066">
+        <di:waypoint x="410" y="250" />
+        <di:waypoint x="480" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rcfdn1_di" bpmnElement="Flow_1rcfdn1">
+        <di:waypoint x="580" y="250" />
+        <di:waypoint x="670" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_181fot8_di" bpmnElement="Flow_181fot8">
+        <di:waypoint x="770" y="250" />
+        <di:waypoint x="865" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ev5v9n_di" bpmnElement="Flow_0ev5v9n">
+        <di:waypoint x="890" y="225" />
+        <di:waypoint x="890" y="120" />
+        <di:waypoint x="1030" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="912" y="103" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15jp70b_di" bpmnElement="Flow_15jp70b">
+        <di:waypoint x="1170" y="280" />
+        <di:waypoint x="1170" y="420" />
+        <di:waypoint x="360" y="420" />
+        <di:waypoint x="360" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="754" y="402" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wwfzku_di" bpmnElement="Flow_1wwfzku">
+        <di:waypoint x="1130" y="120" />
+        <di:waypoint x="1216" y="120" />
+        <di:waypoint x="1216" y="250" />
+        <di:waypoint x="1482" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gj5gnm_di" bpmnElement="Flow_1gj5gnm">
+        <di:waypoint x="1500" y="360" />
+        <di:waypoint x="1500" y="268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jadlyh_di" bpmnElement="Flow_1jadlyh">
+        <di:waypoint x="1190" y="255" />
+        <di:waypoint x="1190" y="420" />
+        <di:waypoint x="1450" y="420" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1193" y="325" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qr1ly7_di" bpmnElement="Flow_1qr1ly7">
+        <di:waypoint x="915" y="250" />
+        <di:waypoint x="990" y="250" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="922" y="232" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vv7nh9_di" bpmnElement="Flow_0vv7nh9">
+        <di:waypoint x="1090" y="250" />
+        <di:waypoint x="1145" y="250" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
