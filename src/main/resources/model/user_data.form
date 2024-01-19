@@ -43,6 +43,16 @@
       },
       "id": "Field_137xmvl",
       "key": "textfield_srw92l"
+    },
+    {
+      "action": "submit",
+      "label": "Submit data",
+      "type": "button",
+      "layout": {
+        "row": "Row_0yf84ed",
+        "columns": null
+      },
+      "id": "Field_1cbvfza"
     }
   ],
   "type": "default"

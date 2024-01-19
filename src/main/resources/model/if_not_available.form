@@ -30,6 +30,16 @@
       "validate": {
         "required": true
       }
+    },
+    {
+      "action": "submit",
+      "label": "Save",
+      "type": "button",
+      "layout": {
+        "row": "Row_03bcnml",
+        "columns": null
+      },
+      "id": "Field_1ne3q0b"
     }
   ],
   "type": "default"

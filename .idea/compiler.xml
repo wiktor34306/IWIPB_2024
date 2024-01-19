@@ -10,12 +10,14 @@
         <module name="ConferenceRoomReservation" />
         <module name="University-Recruitment-1.0" />
         <module name="University-Recruitment-2.0" />
+        <module name="IWIPB_2024" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ConferenceRoomReservation" options="-parameters" />
+      <module name="IWIPB_2024" options="-parameters" />
       <module name="University-Recruitment-1.0" options="-parameters" />
       <module name="University-Recruitment-2.0" options="-parameters" />
       <module name="recruitment-basic" options="-parameters" />

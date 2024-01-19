@@ -13,12 +13,12 @@
 <!--<div id="success"><span id="success-message"></span></div>-->
 <!--<div id="form"></div>-->
 
-<!--<script type="application/form-schema" src="recruitment.json"></script>-->
+<!--<script type="application/form-schema" src="room-select.json"></script>-->
 
 <!--<script src="https://unpkg.com/@bpmn-io/form-js@0.10.0/dist/form-viewer.umd.js"></script>-->
 
 <!--<script>-->
-<!--  $.getJSON('/recruitment.json', function(data) {-->
+<!--  $.getJSON('/room-select.json', function(data) {-->
 <!--    const schema = data;-->
 <!--    const container = document.querySelector('#form');-->
 
@@ -61,53 +61,139 @@
 <div id="success"><span id="success-message"></span></div>
 <div id="form"></div>
 
-<script type="application/form-schema" src="room_select.json"></script>
-
 <script src="https://unpkg.com/@bpmn-io/form-js@0.10.0/dist/form-viewer.umd.js"></script>
 
 <script>
-  // Load room-select.json first
-  $.getJSON('/room_select.json', function(roomSelectData) {
-    const roomSelectSchema = roomSelectData.components;
+  let forms = ['room-select.json', 'user-data.json', 'date-select.json', 'choose-option.json'];
+  let currentFormIndex = 0;
 
-    // Load user-data.json next
-    $.getJSON('/user_data.json', function(userData) {
-      const userDataSchema = userData.components;
+  function loadForm() {
+    if (currentFormIndex >= forms.length) {
+      // Wszystkie formularze zostały przetworzone
+      return;
+    }
 
-      // Load date-select.json after room-select and user-data
-      $.getJSON('/date_select.json', function(dateSelectData) {
-        const dateSelectSchema = dateSelectData.components;
+    let formName = forms[currentFormIndex];
+    $.getJSON('/' + formName, function(data) {
+      const schema = data;
+      const container = document.querySelector('#form');
 
-        // Load choose-option.json at the end
-        $.getJSON('/choose_option.json', function(chooseOptionData) {
-          const chooseOptionSchema = chooseOptionData.components;
+      // Usuń zawartość kontenera formularza
+      container.innerHTML = '';
 
-          const schema = roomSelectSchema.concat(userDataSchema, dateSelectSchema, chooseOptionSchema);
-          const container = document.querySelector('#form');
+      FormViewer.createForm({
+        container,
+        schema
+      }).then(function(form) {
+        console.log(form);
+        form.on('submit', event => {
+          console.log('Form <submit>', event, event.data);
 
-          FormViewer.createForm({
-            container,
-            schema
-          }).then(function(form) {
-            console.log(form);
-            form.on('submit', event => {
-              console.log('Form <submit>', event, event.data);
-
-              $.ajax("/start", {
-                data : JSON.stringify(event.data),
-                contentType : 'application/json',
-                type : 'POST',
-                success: function(data) {
-                  form.reset();
-                  $('#success-message').html("<b>Sala zarezerwowana.</b>");
-                }
-              });
-            });
+          $.ajax("/start", {
+            data : JSON.stringify(event.data),
+            contentType : 'application/json',
+            type : 'POST',
+            success: function(data) {
+              form.reset();
+              $('#success-message').html("<b>Aplikacja zarejestrowana. Decyzja zostanie przekazana na podany adres email.</b>");
+              // Przejdź do następnego formularza
+              currentFormIndex++;
+              loadForm();
+            }
           });
         });
       });
     });
-  });
+  }
+
+  // Rozpocznij ładowanie formularzy
+  loadForm();
 </script>
 </body>
 </html>
+
+
+
+<!--<html>-->
+<!--<head>-->
+<!--  <link rel="stylesheet" href="https://unpkg.com/@bpmn-io/form-js@0.7.2/dist/assets/form-js.css">-->
+<!--  <style>-->
+<!--    #form {-->
+<!--      max-width: 800px;-->
+<!--    }-->
+<!--  </style>-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<div id="success"><span id="success-message"></span></div>-->
+<!--<div id="form"></div>-->
+
+<!--<script type="application/form-schema" src="room-select.json"></script>-->
+
+<!--<script src="https://unpkg.com/@bpmn-io/form-js@0.10.0/dist/form-viewer.umd.js"></script>-->
+
+<!--<script>-->
+<!--  console.log("Rozpoczynam wczytywanie plików JSON");-->
+
+<!--  // Load room-select.json first-->
+<!--  $.getJSON('/room-select.json', function(roomSelectData) {-->
+<!--    console.log("Wczytano room-select.json");-->
+<!--    const roomSelectSchema = roomSelectData.components;-->
+
+<!--    // Load user-data.json next-->
+<!--    $.getJSON('/user-data.json', function(userData) {-->
+<!--      console.log("Wczytano user-data.json");-->
+<!--      const userDataSchema = userData.components;-->
+
+<!--      // Load date-select.json after room-select and user-data-->
+<!--      $.getJSON('/date-select.json', function(dateSelectData) {-->
+<!--        console.log("Wczytano date-select.json");-->
+<!--        const dateSelectSchema = dateSelectData.components;-->
+
+<!--        // Load choose-option.json at the end-->
+<!--        $.getJSON('/choose-option.json', function(chooseOptionData) {-->
+<!--          console.log("Wczytano choose-option.json");-->
+<!--          const chooseOptionSchema = chooseOptionData.components;-->
+
+<!--          console.log("Tworzenie formularza");-->
+<!--          const schema = roomSelectSchema.concat(userDataSchema, dateSelectSchema, chooseOptionSchema);-->
+<!--          const container = document.querySelector('#form');-->
+
+<!--          FormViewer.createForm({-->
+<!--            container,-->
+<!--            schema-->
+<!--          }).then(function(form) {-->
+<!--            console.log("Formularz utworzony");-->
+<!--            form.on('submit', event => {-->
+<!--              console.log('Form <submit>', event, event.data);-->
+
+<!--              $.ajax("/start", {-->
+<!--                data : JSON.stringify(event.data),-->
+<!--                contentType : 'application/json',-->
+<!--                type : 'POST',-->
+<!--                success: function(data) {-->
+<!--                  console.log("Dane wysłane pomyślnie");-->
+<!--                  form.reset();-->
+<!--                  $('#success-message').html("<b>Sala zarezerwowana.</b>");-->
+<!--                }-->
+<!--              });-->
+<!--            });-->
+<!--          }).catch(function(error) {-->
+<!--            console.error("Błąd podczas tworzenia formularza: ", error);-->
+<!--          });-->
+<!--        }).fail(function(jqXHR, textStatus, error) {-->
+<!--          console.error("Błąd podczas wczytywania choose-option.json: ", textStatus, error);-->
+<!--        });-->
+<!--      }).fail(function(jqXHR, textStatus, error) {-->
+<!--        console.error("Błąd podczas wczytywania date-select.json: ", textStatus, error);-->
+<!--      });-->
+<!--    }).fail(function(jqXHR, textStatus, error) {-->
+<!--      console.error("Błąd podczas wczytywania user-data.json: ", textStatus, error);-->
+<!--    });-->
+<!--  }).fail(function(jqXHR, textStatus, error) {-->
+<!--    console.error("Błąd podczas wczytywania room-select.json: ", textStatus, error);-->
+<!--  });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
