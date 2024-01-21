@@ -1,7 +1,5 @@
 package pl.edu.anstar.reservation.model;
 
-import pl.edu.anstar.reservation.model.Room;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -11,33 +9,33 @@ import java.time.LocalDateTime;
 public class Reservation {
 
     @Id
-    private Long id;
+    private Long reservation_id;
 
     @ManyToOne
-    private User user;
+    private User user_id;
 
     @ManyToOne
     private Room room;
 
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private LocalDateTime start_time;
+    private LocalDateTime end_time;
 
     // Getters and setters
 
-    public Long getId() {
-        return id;
+    public Long getReservation_id() {
+        return reservation_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setReservation_id(Long reservation_id) {
+        this.reservation_id = reservation_id;
     }
 
-    public User getUser() {
-        return user;
+    public User getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(User user_id) {
+        this.user_id = user_id;
     }
 
     public Room getRoom() {
@@ -48,19 +46,19 @@ public class Reservation {
         this.room = room;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public LocalDateTime getStart_time() {
+        return start_time;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+    public void setStart_time(LocalDateTime start_time) {
+        this.start_time = start_time;
     }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
+    public LocalDateTime getEnd_time() {
+        return end_time;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setEnd_time(LocalDateTime end_time) {
+        this.end_time = end_time;
     }
 }

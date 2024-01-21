@@ -17,7 +17,7 @@ public class RoomService {
 
     public Room addRoom(Room room) {
         // Sprawdź, czy sala o podanej nazwie już istnieje
-        if (roomRepository.findByName(room.getName()) != null) {
+        if (roomRepository.findByName(room.getRoom_name()) != null) {
             // Jeśli sala o podanej nazwie już istnieje, zgłoś błąd
             throw new RuntimeException("Room with the given name already exists.");
         } else {
@@ -37,7 +37,7 @@ public class RoomService {
                 .orElseThrow(() -> new RuntimeException("Room not found for this id :: " + id));
 
         // Aktualizuj dane pokoju
-        room.setName(roomDetails.getName());
+        room.setRoom_name(roomDetails.getRoom_name());
         room.setCapacity(roomDetails.getCapacity());
 
         // Zapisz zaktualizowane dane pokoju do bazy danych

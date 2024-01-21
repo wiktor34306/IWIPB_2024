@@ -37,7 +37,7 @@ public class ReservationService {
 
         // Aktualizuj rezerwację
         existingReservation.setRoom(reservation.getRoom());
-        existingReservation.setUser(reservation.getUser());
+        existingReservation.setUser_id(reservation.getUser_id());
         // Dodaj inne pola do aktualizacji
 
         return reservationRepository.save(existingReservation);
@@ -50,7 +50,7 @@ public class ReservationService {
 
     public boolean isValid(Reservation reservation) {
         // Sprawdź, czy sala jest dostępna
-        Optional<Reservation> existingReservation = reservationRepository.findByRoomId(reservation.getId());
+        Optional<Reservation> existingReservation = reservationRepository.findByRoomId(reservation.getReservation_id());
         if (existingReservation.isPresent()) {
             // Jeśli sala jest już zarezerwowana, rezerwacja jest nieważna
             return false;

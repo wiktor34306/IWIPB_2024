@@ -17,7 +17,7 @@ public class RoomWorker {
 
     public void handleNewRoom(Room room) {
         // Sprawdź, czy sala o podanej nazwie już istnieje
-        if (roomService.getRoomByName(room.getName()) != null) {
+        if (roomService.getRoomByName(room.getRoom_name()) != null) {
             // Jeśli sala o podanej nazwie już istnieje, zgłoś błąd
             throw new RuntimeException("Room with the given name already exists.");
         } else {

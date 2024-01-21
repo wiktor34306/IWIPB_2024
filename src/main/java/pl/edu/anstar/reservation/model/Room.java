@@ -7,26 +7,26 @@ import javax.persistence.Id;
 public class Room {
 
     @Id
-    private Long id;
-    private String name;
+    private Long room_id;
+    private String room_name;
     private int capacity;
 
     // Getters and setters
 
-    public Long getId() {
-        return id;
+    public Long getRoom_id() {
+        return room_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
     }
 
-    public String getName() {
-        return name;
+    public String getRoom_name() {
+        return room_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRoom_name(String room_name) {
+        this.room_name = room_name;
     }
 
     public int getCapacity() {
