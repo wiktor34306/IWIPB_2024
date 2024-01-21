@@ -1,14 +1,20 @@
 package pl.edu.anstar.reservation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "Reservation", schema = "bpmn_projekt")
 public class Reservation {
 
     @Id
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "reservation_seq")
+    @SequenceGenerator(
+        name = "reservation_seq",
+        schema = "bpmn_projekt",
+        initialValue = 6)
     private Long reservation_id;
 
     @ManyToOne

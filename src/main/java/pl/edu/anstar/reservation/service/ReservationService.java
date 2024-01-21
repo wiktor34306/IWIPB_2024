@@ -16,7 +16,7 @@ public class ReservationService {
 
     public Reservation createReservation(Long roomId, Reservation reservation) {
         // Sprawdź, czy sala jest dostępna
-        Optional<Reservation> existingReservation = reservationRepository.findByRoomId(roomId);
+        Optional<Reservation> existingReservation = reservationRepository.findById(roomId);
         if (existingReservation.isPresent()) {
             throw new RoomNotAvailableException("Room is already reserved");
         }
@@ -50,7 +50,7 @@ public class ReservationService {
 
     public boolean isValid(Reservation reservation) {
         // Sprawdź, czy sala jest dostępna
-        Optional<Reservation> existingReservation = reservationRepository.findByRoomId(reservation.getReservation_id());
+        Optional<Reservation> existingReservation = reservationRepository.findById(reservation.getReservation_id());
         if (existingReservation.isPresent()) {
             // Jeśli sala jest już zarezerwowana, rezerwacja jest nieważna
             return false;

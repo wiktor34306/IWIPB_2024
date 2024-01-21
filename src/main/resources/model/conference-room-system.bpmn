@@ -26,13 +26,23 @@
         "columns": null
       },
       "id": "Field_1d6fdt6",
-      "key": "select_clpl2n",
-      "validate": {
-        "required": true
-      }
-    }
-  ],
-  "type": "default"
+            "key": "select_clpl2n",
+            "validate": {
+              "required": true
+            }
+          },
+          {
+            "action": "submit",
+            "label": "Save",
+            "type": "button",
+            "layout": {
+              "row": "Row_0pjd4b7"
+            },
+            "id": "Field_034t26f",
+            "properties": { }
+          }
+        ],
+        "type": "default"
 }</zeebe:userTaskForm>
       <zeebe:userTaskForm id="UserTaskForm_0hat4sd">{
   "executionPlatform": "Camunda Cloud",
@@ -79,6 +89,16 @@
       },
       "id": "Field_137xmvl",
       "key": "textfield_srw92l"
+    },
+    {
+      "action": "submit",
+      "label": "Submit data",
+      "type": "button",
+      "layout": {
+        "row": "Row_0yf84ed",
+        "columns": null
+      },
+      "id": "Field_1cbvfza"
     }
   ],
   "type": "default"
@@ -130,6 +150,16 @@
       "validate": {
         "required": true
       }
+    },
+    {
+      "action": "submit",
+      "label": "Save",
+      "type": "button",
+      "layout": {
+        "row": "Row_1hunda1",
+        "columns": null
+      },
+      "id": "Field_0f904to"
     }
   ],
   "type": "default"
@@ -166,6 +196,16 @@
       "validate": {
         "required": true
       }
+    },
+    {
+      "action": "submit",
+      "label": "Save",
+      "type": "button",
+      "layout": {
+        "row": "Row_03bcnml",
+        "columns": null
+      },
+      "id": "Field_1ne3q0b"
     }
   ],
   "type": "default"

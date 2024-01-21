@@ -5,5 +5,5 @@ import pl.edu.anstar.reservation.model.Room;
 
 public interface RoomRepository extends CrudRepository<Room, Long> {
 
-    Room findByName(String name);
+    Room findByRoomName(String name);
 }

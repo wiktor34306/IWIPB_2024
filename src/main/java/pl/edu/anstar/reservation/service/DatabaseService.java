@@ -76,7 +76,7 @@ public class DatabaseService {
             pstmt.setString(1, reservation.getUser_id().getFirst_name());
             pstmt.setString(2, reservation.getUser_id().getLast_name());
             pstmt.setString(3, reservation.getUser_id().getCompany_name());
-            pstmt.setString(4, reservation.getRoom().getRoom_name());
+            pstmt.setString(4, reservation.getRoom().getRoomName());
             pstmt.setInt(5, reservation.getRoom().getCapacity());
 
             rs = pstmt.executeQuery();

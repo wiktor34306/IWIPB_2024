@@ -45,6 +45,16 @@
       "validate": {
         "required": true
       }
+    },
+    {
+      "action": "submit",
+      "label": "Save",
+      "type": "button",
+      "layout": {
+        "row": "Row_1hunda1",
+        "columns": null
+      },
+      "id": "Field_0f904to"
     }
   ],
   "type": "default"

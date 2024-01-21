@@ -1,14 +1,21 @@
 package pl.edu.anstar.reservation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Room", schema = "bpmn_projekt")
 public class Room {
 
     @Id
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "room_seq")
+    @SequenceGenerator(
+        name = "room_seq",
+        schema = "bpmn_projekt",
+        initialValue = 6)
     private Long room_id;
-    private String room_name;
+    private String roomName;
     private int capacity;
 
     // Getters and setters
@@ -21,12 +28,12 @@ public class Room {
         this.room_id = room_id;
     }
 
-    public String getRoom_name() {
-        return room_name;
+    public String getRoomName() {
+        return roomName;
     }
 
-    public void setRoom_name(String room_name) {
-        this.room_name = room_name;
+    public void setRoomName(String room_name) {
+        this.roomName = room_name;
     }
 
     public int getCapacity() {

@@ -1,12 +1,19 @@
 package pl.edu.anstar.reservation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "App_User", schema = "bpmn_projekt")
 public class User {
 
     @Id
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "app_user_seq")
+    @SequenceGenerator(
+        name = "app_user_seq",
+        schema = "bpmn_projekt",
+        initialValue = 6)
     private Long user_id;
     private String first_name;
     private String last_name;
