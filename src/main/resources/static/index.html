@@ -41,15 +41,36 @@
         form.on('submit', event => {
           console.log('Form <submit>', event, event.data);
 
+          // Sprawdź, czy wszystkie wymagane pola są wypełnione
+          let isValid = true;
+          for (let key in event.data) {
+            if (event.data[key] === '') {
+              isValid = false;
+              break;
+            }
+          }
+
+          if (!isValid) {
+            alert('Proszę wypełnić wszystkie wymagane pola.');
+            return;
+          }
+
           $.ajax("/start", {
             data : JSON.stringify(event.data),
             contentType : 'application/json',
             type : 'POST',
             success: function(data) {
               form.reset();
-              $('#success-message').html("<b>Aplikacja zarejestrowana. Decyzja zostanie przekazana na podany adres email.</b>");
-              // Przejdź do następnego formularza
-              currentFormIndex++;
+              $('#success-message').html("<b>Sala konferencyjna zarezerwowana w wybranym terminie.</b>");
+              // Sprawdź, czy użytkownik wybrał "Retry reservation"
+              if (event.data.radio_805ey6 === 'Retry') {
+                // Resetuj indeks formularza do początkowego formularza
+                currentFormIndex = 0;
+              } else {
+                // Przejdź do następnego formularza
+                currentFormIndex++;
+              }
+
               loadForm();
             }
           });
