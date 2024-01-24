@@ -1,5 +1,6 @@
 package pl.edu.anstar.reservation.controller;
 
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import pl.edu.anstar.reservation.model.Reservation;
 import pl.edu.anstar.reservation.service.ReservationService;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/reservations")
 public class ReservationController extends Controller {
 
@@ -18,7 +20,7 @@ public class ReservationController extends Controller {
     @PostMapping("/{roomId}")
     public ResponseEntity<Reservation> createReservation(@PathVariable Long roomId,
                                                          @RequestBody Reservation reservation) {
-        return ResponseEntity.ok(reservationService.createReservation(roomId, reservation));
+        return ResponseEntity.ok(reservationService.createReservation(reservation));
     }
 
     @GetMapping("/{reservationId}")
@@ -26,11 +28,11 @@ public class ReservationController extends Controller {
         return ResponseEntity.ok(reservationService.getReservation(reservationId));
     }
 
-    @PutMapping("/{reservationId}")
-    public ResponseEntity<Reservation> updateReservation(@PathVariable Long reservationId,
-                                                         @RequestBody Reservation reservation) {
-        return ResponseEntity.ok(reservationService.updateReservation(reservationId, reservation));
-    }
+//    @PutMapping("/{reservationId}")
+//    public ResponseEntity<Reservation> updateReservation(@PathVariable Long reservationId,
+//                                                         @RequestBody Reservation reservation) {
+//        return ResponseEntity.ok(reservationService.updateReservation(reservationId, reservation));
+//    }
 
     @DeleteMapping("/{reservationId}")
     public ResponseEntity<Void> deleteReservation(@PathVariable Long reservationId) {

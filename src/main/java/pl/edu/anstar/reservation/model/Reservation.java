@@ -1,9 +1,16 @@
 package pl.edu.anstar.reservation.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "Reservation", schema = "bpmn_projekt")
 public class Reservation {
 
@@ -17,11 +24,9 @@ public class Reservation {
         initialValue = 6)
     private Long reservation_id;
 
-    @ManyToOne
-    private User user_id;
+    private String user_name;
 
-    @ManyToOne
-    private Room room;
+    private String room;
 
     private LocalDateTime start_time;
     private LocalDateTime end_time;
@@ -36,19 +41,19 @@ public class Reservation {
         this.reservation_id = reservation_id;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setUser_name(User user_id) {
+        this.user_name = user_name;
     }
 
-    public Room getRoom() {
+    public String getRoom() {
         return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(String room) {
         this.room = room;
     }
 

@@ -1,0 +1,114 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "08b1b84"
+  },
+  "schemaVersion": 14,
+  "id": "Form_registration_data",
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Room 1",
+          "value": "Room 1"
+        }
+      ],
+      "label": "Room name",
+      "type": "select",
+      "layout": {
+        "row": "Row_1c2vfop",
+        "columns": null
+      },
+      "id": "Field_0vm3776",
+      "key": "select_cbxj6c",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1qivx9v",
+        "columns": null
+      },
+      "id": "Field_1sbd1wn",
+      "key": "textfield_zuk19b",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Second Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_107557d",
+        "columns": null
+      },
+      "id": "Field_1yebffg",
+      "key": "textfield_2sz4hc",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Company name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_16m8v6c",
+        "columns": null
+      },
+      "id": "Field_05w1xpy",
+      "key": "textfield_y4ipsg"
+    },
+    {
+      "subtype": "datetime",
+      "dateLabel": "Start Date",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_0r0aorh",
+        "columns": null
+      },
+      "id": "Field_0131fv6",
+      "key": "datetime_a89z3v",
+      "timeLabel": "Time",
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 15,
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "datetime",
+      "dateLabel": "End Date",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_0bu1tb9",
+        "columns": null
+      },
+      "id": "Field_0eho34y",
+      "key": "datetime_qws6f",
+      "timeLabel": "Time",
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 15,
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "action": "submit",
+      "label": "Save",
+      "type": "button",
+      "layout": {
+        "row": "Row_04k8ezu",
+        "columns": null
+      },
+      "id": "Field_1l4eqh9"
+    }
+  ],
+  "type": "default"
+}

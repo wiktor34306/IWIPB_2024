@@ -1,25 +1,24 @@
 package pl.edu.anstar.reservation.service;
 
+
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.edu.anstar.reservation.model.Reservation;
 import pl.edu.anstar.reservation.repository.ReservationRepository;
 import pl.edu.anstar.reservation.exception.RoomNotAvailableException;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
 @Service
 public class ReservationService {
 
-    @Autowired
     private ReservationRepository reservationRepository;
 
-    public Reservation createReservation(Long roomId, Reservation reservation) {
-        // Sprawdź, czy sala jest dostępna
-        Optional<Reservation> existingReservation = reservationRepository.findById(roomId);
-        if (existingReservation.isPresent()) {
-            throw new RoomNotAvailableException("Room is already reserved");
-        }
+    public Reservation createReservation(Reservation reservation) {
 
         // Jeśli sala jest dostępna, utwórz rezerwację
         return reservationRepository.save(reservation);
@@ -31,32 +30,34 @@ public class ReservationService {
                 .orElseThrow(() -> new RoomNotAvailableException("Reservation not found"));
     }
 
-    public Reservation updateReservation(Long reservationId, Reservation reservation) {
-        // Sprawdź, czy rezerwacja istnieje
-        Reservation existingReservation = getReservation(reservationId);
-
-        // Aktualizuj rezerwację
-        existingReservation.setRoom(reservation.getRoom());
-        existingReservation.setUser_id(reservation.getUser_id());
-        // Dodaj inne pola do aktualizacji
-
-        return reservationRepository.save(existingReservation);
-    }
+//    public Reservation updateReservation(Long reservationId, Reservation reservation) {
+//        // Sprawdź, czy rezerwacja istnieje
+//        Reservation existingReservation = getReservation(reservationId);
+//
+//        // Aktualizuj rezerwację
+//        existingReservation.setRoom(reservation.getRoom());
+//        existingReservation.setUser_id(reservation.getUser_id());
+//        // Dodaj inne pola do aktualizacji
+//
+//        return reservationRepository.save(existingReservation);
+//    }
 
     public void deleteReservation(Long reservationId) {
         // Usuń rezerwację
         reservationRepository.deleteById(reservationId);
     }
 
-    public boolean isValid(Reservation reservation) {
+    public boolean isValid(LocalDateTime localDateTime) {
+//        return true;
         // Sprawdź, czy sala jest dostępna
-        Optional<Reservation> existingReservation = reservationRepository.findById(reservation.getReservation_id());
-        if (existingReservation.isPresent()) {
+        List<Reservation> existingReservation = reservationRepository.findAllByStartTime(localDateTime);
+        System.out.println(existingReservation);
+        if (existingReservation.isEmpty()) {
             // Jeśli sala jest już zarezerwowana, rezerwacja jest nieważna
-            return false;
+            return true;
         }
 
         // Jeśli sala jest dostępna, rezerwacja jest ważna
-        return true;
+        return false;
     }
 }
