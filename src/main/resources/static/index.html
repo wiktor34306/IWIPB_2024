@@ -5,6 +5,12 @@
     #form {
       max-width: 800px;
     }
+
+    .flatpickr-prev-month svg, .flatpickr-next-month svg {
+      width: 20px;
+      height: 20px;
+    }
+
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -16,7 +22,7 @@
 <script src="https://unpkg.com/@bpmn-io/form-js@0.10.0/dist/form-viewer.umd.js"></script>
 
 <script>
-  let forms = ['registration_data.json', 'choose-option.json'];
+  let forms = ['registration_data.json'];
   let currentFormIndex = 0;
 
   function loadForm() {
@@ -61,15 +67,6 @@
             type : 'POST',
             success: function(data) {
               form.reset();
-              $('#success-message').html("<b>Sala konferencyjna zarezerwowana w wybranym terminie.</b>");
-              // Sprawdź, czy użytkownik wybrał "Retry reservation"
-              if (event.data.radio_805ey6 === 'Retry') {
-                // Resetuj indeks formularza do początkowego formularza
-                currentFormIndex = 0;
-              } else {
-                // Przejdź do następnego formularza
-                currentFormIndex++;
-              }
 
               loadForm();
             }
@@ -79,7 +76,6 @@
     });
   }
 
-  // Rozpocznij ładowanie formularzy
   loadForm();
 </script>
 </body>

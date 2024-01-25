@@ -1,122 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="08b1b84" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="10582589-c69d-4274-85c3-1f8125248141">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="e414032" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="10582589-c69d-4274-85c3-1f8125248141">
   <bpmn:process id="Process_1kqmylz" isExecutable="true">
-    <bpmn:extensionElements>
-      <zeebe:userTaskForm id="UserTaskForm_0es6vvq">{
-  "executionPlatform": "Camunda Cloud",
-  "executionPlatformVersion": "8.4.0",
-  "exporter": {
-    "name": "Camunda Web Modeler",
-    "version": "08b1b84"
-  },
-  "schemaVersion": 14,
-  "id": "Form_registration_data",
-  "components": [
-    {
-      "values": [
-        {
-          "label": "Room 1",
-          "value": "Room 1"
-        }
-      ],
-      "label": "Room name",
-      "type": "select",
-      "layout": {
-        "row": "Row_1c2vfop",
-        "columns": null
-      },
-      "id": "Field_0vm3776",
-      "key": "select_cbxj6c",
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "label": "First Name",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_1qivx9v",
-        "columns": null
-      },
-      "id": "Field_1sbd1wn",
-      "key": "textfield_zuk19b",
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "label": "Second Name",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_107557d",
-        "columns": null
-      },
-      "id": "Field_1yebffg",
-      "key": "textfield_2sz4hc",
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "label": "Company name",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_16m8v6c",
-        "columns": null
-      },
-      "id": "Field_05w1xpy",
-      "key": "textfield_y4ipsg"
-    },
-    {
-      "subtype": "datetime",
-      "dateLabel": "Start Date",
-      "label": "Date time",
-      "type": "datetime",
-      "layout": {
-        "row": "Row_0r0aorh",
-        "columns": null
-      },
-      "id": "Field_0131fv6",
-      "key": "datetime_a89z3v",
-      "timeLabel": "Time",
-      "timeSerializingFormat": "utc_offset",
-      "timeInterval": 15,
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "subtype": "datetime",
-      "dateLabel": "End Date",
-      "label": "Date time",
-      "type": "datetime",
-      "layout": {
-        "row": "Row_0bu1tb9",
-        "columns": null
-      },
-      "id": "Field_0eho34y",
-      "key": "datetime_qws6f",
-      "timeLabel": "Time",
-      "timeSerializingFormat": "utc_offset",
-      "timeInterval": 15,
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "action": "submit",
-      "label": "Save",
-      "type": "button",
-      "layout": {
-        "row": "Row_04k8ezu",
-        "columns": null
-      },
-      "id": "Field_1l4eqh9"
-    }
-  ],
-  "type": "default"
-}</zeebe:userTaskForm>
-    </bpmn:extensionElements>
     <bpmn:startEvent id="Event_1xolcli">
       <bpmn:outgoing>Flow_17i1t95</bpmn:outgoing>
     </bpmn:startEvent>
@@ -136,11 +20,6 @@
     <bpmn:sequenceFlow id="Flow_05xya9e" name="is available" sourceRef="Gateway_0j8cuw7" targetRef="Activity_10t4ifd">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isAvailable=true</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_1whfsly" name="Complete data for reservation conference room">
-      <bpmn:extensionElements>
-        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_0es6vvq" />
-      </bpmn:extensionElements>
-    </bpmn:userTask>
     <bpmn:serviceTask id="Activity_18ol4o6" name="Check if date is available">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="checkValidDate" />
@@ -170,9 +49,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_19vocgb_di" bpmnElement="Activity_10t4ifd">
         <dc:Bounds x="670" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1dl366q_di" bpmnElement="Activity_1whfsly">
-        <dc:Bounds x="170" y="390" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0sq7qpd_di" bpmnElement="Activity_18ol4o6">
         <dc:Bounds x="300" y="190" width="100" height="80" />
@@ -208,11 +84,11 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ak5trc_di" bpmnElement="Flow_0ak5trc">
         <di:waypoint x="470" y="255" />
-        <di:waypoint x="470" y="410" />
-        <di:waypoint x="1140" y="410" />
+        <di:waypoint x="470" y="370" />
+        <di:waypoint x="1140" y="370" />
         <di:waypoint x="1140" y="268" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="749" y="413" width="62" height="14" />
+          <dc:Bounds x="749" y="373" width="63" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

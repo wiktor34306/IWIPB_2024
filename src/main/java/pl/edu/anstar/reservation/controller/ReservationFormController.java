@@ -30,7 +30,6 @@ public class ReservationFormController {
 
         LOG.info("Starting process " + ProcessConstants.BPMN_PROCESS_ID + " with variables: " + variables);
 
-        //variables.put("orderTotal", 200);
 
         client
                 .newCreateInstanceCommand()
@@ -38,5 +37,6 @@ public class ReservationFormController {
                 .latestVersion()
                 .variables(variables)
                 .send();
+
     }
 }
